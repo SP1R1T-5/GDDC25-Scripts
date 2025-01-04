@@ -1,0 +1,27 @@
+# Import the Active Directory module
+Import-Module ActiveDirectory
+
+# Modify the default domain password policy
+Set-ADDefaultDomainPasswordPolicy -Identity "DOMAIN.LOCAL" `
+    -MinPasswordLength 14 ` 
+    -MinPasswordAge 1 ` 
+    -MaxPasswordAge 90 ` 
+    -PasswordHistoryCount 5 ` 
+    -ComplexityEnabled $true ` 
+    -ReversibleEncryptionEnabled $false 
+
+# Create a Fine-Grained Password Policy for auditing purposes
+New-ADFineGrainedPasswordPolicy -Name "AuditPolicy" `
+    -Precedence 1 `
+    -MinPasswordLength 14 `
+    -MinPasswordAge 1 `
+    -MaxPasswordAge 90 `
+    -PasswordHistoryCount 5 `
+    -ComplexityEnabled $true `
+    -ReversibleEncryptionEnabled $false `
+    -Description "Audit Password Policy"
+
+# Apply the FGPP to a specific security group
+Add-ADFineGrainedPasswordPolicySubject -Identity "AuditPolicy" -Subjects "Domain Users"
+
+Get-ADDefaultDomainPasswordPolicy
