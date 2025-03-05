@@ -16,4 +16,5 @@ Get-Service sshd
 netstat -an | Findstr 22
 
 echo"SSH setup complete, don't break it again >:(" 
+pause
 #Jon Fortnite
