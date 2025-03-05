@@ -1,9 +1,9 @@
 #Enter IPs here :)
 
-$IP1 = X.X.X.X
-$IP2 = X.X.X.X
+$IP1 = "X.X.X.X"
+#$IP2 = 
 
 #Setting the Preferred DNS of the Server
-ping X.X.X.X
-Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses X.X.X.X
+ping $IP1
+Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses $IP1
 
