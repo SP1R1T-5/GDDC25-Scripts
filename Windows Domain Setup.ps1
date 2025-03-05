@@ -11,16 +11,16 @@ $Pass = Read-Host "Enter Password" -AsSecureString
 $Credential = New-Object System.Management.Automation.PSCredential ($User, $Pass)
 
 #Setting the Preferred DNS of the Server
-echo "Pinging the DC . . . "
+write-output "Pinging the DC . . . "
 ping $IP1
-echo "Setting the Prefered DNS Address"
+Write-output "Setting the Prefered DNS Address"
 Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses $IP1
 
 #Joining the Domain
-echo "Joining Domain!"
+Write-Output "Joining Domain!"
 Add-Computer -DomainName $Domain -Credential $Credential 
 
-echo "Domain is all set!"
+Write-Output "Domain is all set!"
 #Restart-Computer
 Pause
 #Jon Fortnite
