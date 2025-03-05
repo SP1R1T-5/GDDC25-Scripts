@@ -16,4 +16,8 @@ ping $IP1
 Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses $IP1
 
 #Joining the Domain
-Add-Computer -DomainName $Domain -Credential $Credential -Restart
+Add-Computer -DomainName $Domain -Credential $Credential 
+
+echo "Domain is all set!"
+#Jon Fortnite
+Restart-Computer
