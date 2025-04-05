@@ -5,7 +5,6 @@ $servicesToStop = @(
     'DNS',       # DNS Server
     'NTDS',      # Active Directory Domain Services
     'W3SVC',     # World Wide Web Publishing Service
-    'WinRM',     # Windows Remote Management
     'CertSvc'    # Active Directory Certificate Services
 )
 
